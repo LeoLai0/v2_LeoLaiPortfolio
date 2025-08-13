@@ -1,21 +1,13 @@
-import westpacImg from "../assets/westpac.png";
-import ecoM from "../assets/ecoM.jpeg";
-import flowersForJune from "../assets/flowersForJune.gif";
-import porfolio from "../assets/portfolio.jpeg";
-import sneakySaving from "../assets/sneakySaving.gif";
-import presto from "../assets/presto.jpg";
-import qanda from "../assets/qanda.jpg";
-import github from "../assets/github.png";
-import linkedin from "../assets/linkedin.png";
-import mail from "../assets/mail.png";
-
-export const MainPageExperienceElement: string = "<img\n\t\tsrc=\"leo_lai_portfolio/Experience.jpg\"\n\t\talt=\"Westpac, Ernst & Young, JB HI-FI,\n\t\tUNIQLO Logos\"\n/>"
-
-export const MainPageProjectsElement: string = "<img\n\t\tsrc=\"leo_lai_portfolio/Projects.jpg\"\n\t\talt=\"Collage of all projects with GitHub \n\t\t\t\tLogo in the middle\"\n/>"
-
-export const MainPageContactElement: string = "<img\n\t\tsrc=\"leo_lai_portfolio/Education.jpg\"\n\t\talt=\"Icon of a Mobile Phone\"\n/>"
-
-export const MainPageAboutElement: string = "<img\n\tsrc=\"leo_lai_portfolio/Skills.jpg\"\n\t\talt=\"Insert corporate headshot photo\"\n/>"
+import westpacImg from "../assets/westpac.webp";
+import ecoM from "../assets/ecoM.webp";
+import flowersForJune from "../assets/flowersForJune.mp4";
+import porfolio from "../assets/portfolio.webp";
+import sneakySaving from "../assets/sneakySaving.mp4";
+import presto from "../assets/presto.webp";
+import qanda from "../assets/qanda.webp";
+import github from "../assets/github.webp";
+import linkedin from "../assets/linkedin.webp";
+import mail from "../assets/mail.webp";
 
 export const ExperiencesWestpacDescription: string = "Rated 'Exceeds Expectations, I've delivered full-stack tools to facilitate Westpac's UNITE Program. Contributed to large-scale data migrations using Oracle-based ETL tools like Informatica, and supported DevOps CI/CD operations (Jenkins, Artifactory, Bitbucket, JIRA)"
 

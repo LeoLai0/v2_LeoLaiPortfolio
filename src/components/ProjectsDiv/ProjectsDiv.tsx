@@ -49,11 +49,23 @@ export const ProjectsDiv = () => {
               onClick={() => window.open(proj.link, "_blank")}
             >
               <div className={`w-[25%] flex items-start mt-2 justify-center transition duration-150 ${isOther ? "brightness-50" : ""}`}>
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className={!showProfessional ? "border-3 border-white/50 rounded-sm" : ""}
-                />
+                {proj.image.endsWith(".mp4") ? (
+                  <video
+                    src={proj.image}
+                    controls={false}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={!showProfessional ? "border-3 border-white/50 rounded-sm" : ""}
+                  />
+                ) : (
+                  <img
+                    src={proj.image}
+                    alt={proj.title}
+                    className={!showProfessional ? "border-3 border-white/50 rounded-sm" : ""}
+                  />
+                )}
               </div>
               <div className="flex flex-col w-[70%]">
                 <div className="font-light mb-1 flex items-center text-md gap-2 flex justify-between items-center md:justify-normal">
