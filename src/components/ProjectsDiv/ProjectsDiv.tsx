@@ -76,7 +76,7 @@ export const ProjectsDiv = () => {
                     <div
                       className="text-zinc-400 text-[0.6rem] transition duration-200 pl-2 group-hover:scale-115 text-zinc-40 underline-offset-2 group-hover:underline group-hover:text-white/80 font-thin"
                     >
-                      View<span className="invisible md:visible"> Project</span>
+                      View<span className="hidden md:inline"> Project</span>
                     </div>
                   )
                   }
