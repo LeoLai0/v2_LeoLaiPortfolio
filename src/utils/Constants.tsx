@@ -104,17 +104,17 @@ export const Projects = [
       },
       {
         title: 'Portfolio Website',
-        description: 'Front-end React project to showcase portfolio',
+        description: 'Front-end React + Vite + Typescript project to showcase V2 portfolio.',
         skills: [
           "React", "Vite", "TypeScript", "Tailwind CSS"
         ],
-        link: "https://github.com/LeoLai0/PortfolioWebsite",
+        link: "https://github.com/LeoLai0/v2_LeoLaiPortfolio",
         location: "github",
         image: porfolio
       },
       {
         title: 'Presentation Tool',
-        description: 'Full-stack React Presentation Tool Project',
+        description: 'Full-stack React Presentation Tool Project to simulate creation of presentation slides to that of Slido/Powerpoint',
         skills: [
           "React", "JavaScript", "Node.js", "Express"
         ],
@@ -124,7 +124,7 @@ export const Projects = [
       },
       {
         title: 'Forum Application',
-        description: 'Front-end Vanilla JavaScript Forum Project',
+        description: 'Front-end Vanilla JavaScript Forum Project to simulate functionalities of similar forums platforms like Reddit.',
         skills: [
           "JavaScript"
         ],
@@ -134,7 +134,7 @@ export const Projects = [
       },
       {
         title: 'Sneaky Saving Strategies',
-        description: 'Personal Financial Literacy Blog Posts',
+        description: 'Personal Blog Posts to help boost financial literacy of UNSW Students.',
         skills: [
           "Microsoft Word"
         ],
