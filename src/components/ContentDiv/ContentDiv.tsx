@@ -51,7 +51,7 @@ export const ContentDiv = (props: {
       <div id="projects" ref={projectsRef} className="scroll-mt-7">
         <ProjectsDiv />
       </div>
-      <div className="text-xs pl-6 w-100 mb-10 text-zinc-400">
+      <div className="text-xs pl-6 md:w-100 w-75 mb-10 text-zinc-400">
         Reference was designed on <span className="text-white">Figma</span>, and made using <span className="text-white">TypeScript</span>, <span className="text-white">React</span>, <span className="text-white">TailwindCSS</span>, and deployed on <span className="text-white">Vercel</span>.
       </div>
     </div>
