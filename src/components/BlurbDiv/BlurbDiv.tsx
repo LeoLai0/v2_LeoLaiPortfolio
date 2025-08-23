@@ -9,7 +9,7 @@ export const BlurbDiv = ( BlurbDivProps: {
   return (
     <div className="lg:pl-10 lg:pr-10 pl-5 pr-5 col-span-1 lg:sticky md:relative top-0 lg:h-[calc(100vh-8vh)] flex flex-col lg:justify-between select-none">
       <div>
-        <h1 className="lg:text-[8rem] text-[7rem] font-normal tracking-[-0.06em]">Leo Lai</h1>
+        <h1 className="lg:text-[8rem] md:text-[7rem] text-[6rem] font-normal tracking-[-0.06em]">Leo Lai</h1>
         <div className="pl-2 pr-4 pointer-events-auto">
           <div className="text-2xl mb-1">Full Stack Engineer</div>
           <div className="text-md mb-10 text-zinc-400">
