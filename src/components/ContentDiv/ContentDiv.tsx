@@ -40,15 +40,31 @@ export const ContentDiv = (props: {
       if (projectsRef.current) observer.unobserve(projectsRef.current);
     };
   }, [setSection]);
+  
   return (
     <div className="mt-5 col-span-1 lg:pr-10 lg:pl-0 pl-1 pr-1 font-thin text-sm tracking-[0.5px] flex flex-col gap-16">
       <div id="about" ref={aboutRef} className="scroll-mt-10">
+        <div
+          className="lg:hidden pl-6 cursor-default text-white font-medium tracking-wider"
+        >
+          ABOUT
+        </div>
         <AboutDiv />
       </div>
       <div id="experiences" ref={experiencesRef} className="scroll-mt-12">
+        <div
+          className="lg:hidden pl-6 cursor-default text-white font-medium tracking-wider"
+        >
+          EXPERIENCES
+        </div>
         <ExperiencesDiv />
       </div>
       <div id="projects" ref={projectsRef} className="scroll-mt-7">
+        <div
+          className="lg:hidden pl-6 cursor-default text-white font-medium tracking-wider"
+        >
+          PROJECTS
+        </div>
         <ProjectsDiv />
       </div>
       <div className="text-xs pl-6 md:w-100 w-75 mb-10 text-zinc-400">

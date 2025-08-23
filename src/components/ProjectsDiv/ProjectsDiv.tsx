@@ -39,7 +39,7 @@ export const ProjectsDiv = () => {
               className={
                 `group mb-1 border-transparent flex flex-row justify-between gap-4 transition duration-200 cursor-pointer rounded-md p-6 mb-1
                 ${isHovered
-                  ? "hover:bg-white/5 hover:border-t-1 hover:border-t-white/10 hover:inset-shadow-[0_10px_40px_rgba(0,0,0,0)] hover:backdrop-blur-[1px] hover:inset-shadow-white/8"
+                  ? "lg:hover:bg-white/5 lg:hover:border-t-1 lg:hover:border-t-white/10 lg:hover:inset-shadow-[0_10px_40px_rgba(0,0,0,0)] lg:hover:backdrop-blur-[1px] lg:hover:inset-shadow-white/8"
                   : isOther
                     ? "text-zinc-500"
                     : "hover:bg-white/5 hover:border-t-1 hover:border-t-white/20"}`
