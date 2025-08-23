@@ -43,11 +43,11 @@ export const BlurbDiv = ( BlurbDivProps: {
           </div>
         </div>
       </div>
-      <div className="pl-2 h-10 mb-10 flex flex-row items-end gap-5">
+      <div className="pl-2 lg:h-10 md:h-7 h-5 lg:mb-10 md:mb-7 mb-5 flex flex-row items-end lg:gap-5 md:gap-4 gap-3">
           {contactElements.map((element, index) => (
             <div
               key={index}
-              className="w-7 hover:invert transition duration-200 cursor-pointer"
+              className="lg:w-7 md:w-6 w-5 hover:invert transition duration-200 cursor-pointer"
               onClick={(e) => {
                 if (element.name === "mail") {
                   window.location.href = `mailto: ${element.link}`;
