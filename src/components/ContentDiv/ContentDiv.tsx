@@ -4,10 +4,9 @@ import { ProjectsDiv } from "../ProjectsDiv/ProjectsDiv";
 import { AboutDiv } from "../AboutDiv/AboutDiv";
 
 export const ContentDiv = (props: {
-  section: string;
   setSection: (section: string) => void;
 }) => {
-  const { section, setSection } = props;
+  const { setSection } = props;
 
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const experiencesRef = useRef<HTMLDivElement | null>(null);
