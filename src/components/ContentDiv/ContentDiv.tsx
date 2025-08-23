@@ -1,17 +1,22 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExperiencesDiv } from "../ExperiencesDiv/ExperiencesDiv";
 import { ProjectsDiv } from "../ProjectsDiv/ProjectsDiv";
 import { AboutDiv } from "../AboutDiv/AboutDiv";
 
 export const ContentDiv = (props: {
-  section: string,
-  setSection: (section: string) => void
+  section: string;
+  setSection: (section: string) => void;
 }) => {
   const { section, setSection } = props;
 
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const experiencesRef = useRef<HTMLDivElement | null>(null);
   const projectsRef = useRef<HTMLDivElement | null>(null);
+
+  // track blur states
+  const [aboutBlur, setAboutBlur] = useState(false);
+  const [expBlur, setExpBlur] = useState(false);
+  const [projBlur, setProjBlur] = useState(false);
 
   useEffect(() => {
     const makeObserver = (id: string, threshold: number) =>
@@ -44,63 +49,78 @@ export const ContentDiv = (props: {
       if (projectsRef.current) projObs.unobserve(projectsRef.current);
     };
   }, [setSection]);
+
+  // special observers to toggle blur when sticky
+  useEffect(() => {
+    const toggleBlur = (
+      el: HTMLElement | null,
+      setBlur: (val: boolean) => void
+    ) => {
+      if (!el) return;
+      const sentinel = document.createElement("div");
+      sentinel.style.height = "1px";
+      sentinel.style.visibility = "hidden"; // invisible but in flow
+      el.insertBefore(sentinel, el.firstChild); // still inside section
+
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          // if sentinel is NOT visible -> header is stuck
+          setBlur(!entry.isIntersecting);
+        },
+        { root: null, threshold: 0 }
+      );
+      obs.observe(sentinel);
+
+      return () => {
+        obs.disconnect();
+        sentinel.remove();
+      };
+    };
   
+    const cleanups = [
+      toggleBlur(aboutRef.current, setAboutBlur),
+      toggleBlur(experiencesRef.current, setExpBlur),
+      toggleBlur(projectsRef.current, setProjBlur),
+    ];
+
+    return () => {
+      cleanups.forEach((c) => c && c());
+    };
+  }, []);
+
   return (
-    <div className="mt-5 col-span-1 lg:pr-10 lg:pl-0 pl-1 pr-1 font-thin text-sm tracking-[0.5px] flex flex-col gap-16">
+    <div className="mt-5 col-span-1 lg:pr-10 lg:pl-0 font-thin text-sm tracking-[0.5px] flex flex-col gap-16">
+      {/* ABOUT */}
       <div id="about" ref={aboutRef} className="lg:scroll-mt-10 scroll-mt-6">
         <div
-          className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
-            section === "about" ? 'text-white font-medium block' : 'text-black'
-          }`}
+          className={`flex sticky top-0 py-2 lg:hidden pl-6 items-center group text-white font-medium z-100
+          ${aboutBlur ? "backdrop-blur-md bg-black/30 border-b-1 border-white/50" : ""}
+        `}
         >
-          <span
-            className={`h-[1px] transition-all duration-500 ${
-              section === "about" ? 'w-12 bg-white' : 'w-4 black'
-            }`}
-          />
-          <div
-            className="cursor-default"
-          >
-            ABOUT
-          </div>
+          <div className="cursor-default">ABOUT</div>
         </div>
+
         <AboutDiv />
       </div>
+
+      {/* EXPERIENCES */}
       <div id="experiences" ref={experiencesRef} className="lg:scroll-mt-12 scroll-mt-6">
         <div
-          className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
-            section === "experiences" ? 'text-white font-medium block' : 'text-black'
-          }`}
+          className={`flex sticky top-0 py-2 lg:hidden pl-6 items-center group text-white font-medium z-100
+          ${expBlur ? "backdrop-blur-md bg-black/40 border-b-1 border-white/50" : ""}`}
         >
-          <span
-            className={`h-[1px] transition-all duration-500 ${
-              section === "experiences" ? 'w-12 bg-white' : 'w-4 black'
-            }`}
-          />
-          <div
-            className="cursor-default"
-          >
-            EXPERIENCES
-          </div>
+          <div className="cursor-default">EXPERIENCES</div>
         </div>
         <ExperiencesDiv />
       </div>
+
+      {/* PROJECTS */}
       <div id="projects" ref={projectsRef} className="lg:scroll-mt-7 scroll-mt-6">
         <div
-          className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
-            section === "projects" ? 'text-white font-medium block' : 'text-black'
-          }`}
+          className={`flex sticky top-0 py-2 lg:hidden pl-6 items-center group text-white font-medium z-100
+          ${projBlur ? "backdrop-blur-md bg-black/40 border-b-1 border-white/50" : ""}`}
         >
-          <span
-            className={`h-[1px] transition-all duration-500 ${
-              section === "projects" ? 'w-12 bg-white' : 'w-4 black'
-            }`}
-          />
-          <div
-            className="cursor-default"
-          >
-            PROJECTS
-          </div>
+          <div className="cursor-default">PROJECTS</div>
         </div>
         <ProjectsDiv />
       </div>
@@ -109,4 +129,4 @@ export const ContentDiv = (props: {
       </div>
     </div>
   );
-}
+};
