@@ -15,7 +15,7 @@ export const BlurbDiv = ( BlurbDivProps: {
           <div className="text-md mb-10 text-zinc-400">
             I'm passionate about building scalable, efficient applications with intuitive design, and real world impact
           </div>
-          <div className="flex flex-col gap-4 text-sm tracking-[1.5px] lg:flex hidden">
+          <div className="flex flex-col gap-4 text-xs tracking-[1.5px] lg:flex hidden">
             {[
               { label: 'ABOUT', key: 'about' },
               { label: 'EXPERIENCES', key: 'experiences' },
