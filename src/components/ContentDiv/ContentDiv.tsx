@@ -47,7 +47,7 @@ export const ContentDiv = (props: {
   
   return (
     <div className="mt-5 col-span-1 lg:pr-10 lg:pl-0 pl-1 pr-1 font-thin text-sm tracking-[0.5px] flex flex-col gap-16">
-      <div id="about" ref={aboutRef} className="scroll-mt-10">
+      <div id="about" ref={aboutRef} className="lg:scroll-mt-10 scroll-mt-6">
         <div
           className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
             section === "about" ? 'text-white font-medium block' : 'text-black'
@@ -66,7 +66,7 @@ export const ContentDiv = (props: {
         </div>
         <AboutDiv />
       </div>
-      <div id="experiences" ref={experiencesRef} className="scroll-mt-12">
+      <div id="experiences" ref={experiencesRef} className="lg:scroll-mt-12 scroll-mt-6">
         <div
           className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
             section === "experiences" ? 'text-white font-medium block' : 'text-black'
@@ -85,7 +85,7 @@ export const ContentDiv = (props: {
         </div>
         <ExperiencesDiv />
       </div>
-      <div id="projects" ref={projectsRef} className="scroll-mt-7">
+      <div id="projects" ref={projectsRef} className="lg:scroll-mt-7 scroll-mt-6">
         <div
           className={`flex lg:hidden pl-6 items-center gap-2 group transition-colors duration-500 ${
             section === "projects" ? 'text-white font-medium block' : 'text-black'
